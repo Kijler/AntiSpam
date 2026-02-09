@@ -1,18 +1,21 @@
 name: AntiSpam
-version: 2.4.0
+version: 3.0.0
 main: cz.kijler.antiSpam.AntiSpam
 author: Kijler
-description: AntiSpam plugin to prevent spam messages
+description: AntiSpam plugin with database logging and punishments
 commands:
   antispam:
-    description: Reload the AntiSpam plugin or show usage information
-    usage: /antispam reload
+    description: Main command for AntiSpam
+    usage: /antispam <reload|check>
 permissions:
   antispam.bypass:
     description: Allows the player to bypass AntiSpam checks
     default: op
   antispam.reload:
     description: Allows the player to reload the AntiSpam plugin
+    default: op
+  antispam.check:
+    description: Allows the player to view punishment info by ID
     default: op
   antispam.notify:
     description: Allows the player to receive notifications about new plugin updates
