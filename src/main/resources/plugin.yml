@@ -1,22 +1,35 @@
 name: AntiSpam
-version: 3.0.0
+version: 3.2.0
 main: cz.kijler.antiSpam.AntiSpam
+api-version: '1.21'
 author: Kijler
 description: AntiSpam plugin with database logging and punishments
 commands:
   antispam:
     description: Main command for AntiSpam
     usage: /antispam <reload|check>
+  chatreport:
+    description: Report a player for inappropriate chat
+    usage: /chatreport <player>
+  reportchat:
+    description: Report a player for inappropriate chat
+    usage: /reportchat <player>
+  chatreportlogs:
+    description: List all active chat reports
+    usage: /chatreportlogs
 permissions:
   antispam.bypass:
     description: Allows the player to bypass AntiSpam checks
     default: op
   antispam.reload:
-    description: Allows the player to reload the AntiSpam plugin
+    description: Allows the player to reload the plugin and see update notifications
     default: op
-  antispam.check:
-    description: Allows the player to view punishment info by ID
+  antispam.admin:
+    description: Allows checking punishments, viewing/managing chat reports, and grants report immunity
     default: op
-  antispam.notify:
-    description: Allows the player to receive notifications about new plugin updates
+  antispam.chatreport:
+    description: Allows the player to report others
+    default: true
+  antispam.punishnotify:
+    description: Receive notifications when a player is punished
     default: op
