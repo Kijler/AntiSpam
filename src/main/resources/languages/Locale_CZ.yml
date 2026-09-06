@@ -5,3 +5,59 @@ wait-message: "§7Musíte počkat §6%remaining_time% §7sekundy před odeslán�
 repeat-message: "§7Neposílejte stejnou zprávu dvakrát za sebou."
 no-permission-message: "§cNemáte oprávnění k použití tohoto příkazu."
 repeat-character-message: "§7Vaše zpráva obsahuje příliš mnoho opakujících se znaků."
+invalid-id-message: "§cID musí být číslo."
+punish-check-not-found: "§cTrest s tímto ID nebyl nalezen."
+punish-check-found: |-
+  §7Vyhledávání trestu
+  §7ID trestu: §6%id% 
+  §7Hráč: §e%player% 
+  §7Kategorie: §c%category%
+  §7Zpráva: §f%content%
+help-message: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eNápověda příkazů
+  §8- §e/antispam reload §8- §fZnovu načte konfiguraci pluginu.
+  §8- §e/antispam check <ID> §8- §fZobrazí detaily konkrétního trestu.
+  §8- §e/chatreport <player> §8- §fNahlásí hráče za nevhodný chat.
+  §8- §e/chatreportlogs §8- §fZobrazí seznam nedávných nahlášení.
+  §8§m--------------------------------------------------
+only-players-command: "§cTento příkaz může použít pouze hráč."
+report-feature-disabled: "§cTato funkce je momentálně vypnutá."
+report-self: "§cNemůžeš nahlásit sám sebe."
+report-admin: "§cTohoto hráče nemůžeš nahlásit, jelikož má imunitu."
+report-cooldown: "§cTohoto hráče jsi již nedávno nahlásil."
+report-sent: "§aHráč byl úspěšně nahlášen! Děkujeme."
+report-empty: "§cTento hráč zatím nic nenapsal."
+report-closed: "§aReport #%id% byl úspěšně uzavřen a smazán."
+report-notify: "§c[!] Nový report ze serveru §e%server% §cna hráče §e%reported% §cod §a%reporter%"
+report-click-open: "§8[ §aKLIKNI PRO ZOBRAZENÍ KNIHY §8]"
+
+report-list-empty: "§cZatím nebyly vytvořeny žádné reporty."
+report-list-header: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eSeznam posledních reportů:
+report-list-format: "§8- §c#%id% §8| §7Hráč: §e%reported% §8| §7Nahlásil: §a%reporter%"
+report-list-hover: "§aKlikni pro zobrazení knihy"
+report-list-footer: "§8§m--------------------------------------------------"
+report-not-found: "§cTento report již neexistuje (byl uzavřen)."
+
+report-book-title: "Report #%id%"
+report-book-author: "AntiSpam System"
+report-book-page1: |-
+  §c§lReport #%id%
+
+  §8Server: §0%server%
+  §8Nahlášen: §c%reported%
+  §8Nahlásil: §a%reporter%
+  §8Datum: §0%date%
+
+report-book-close-btn: "§4§l[UZAVŘÍT REPORT]"
+report-book-close-hover: "§cSmazat a uzavřít tento report"
+report-book-page2: |-
+  §8§nPoslední zprávy:
+
+punish-notify: "§8[§c!§8] §cHráč §e%player% §cbyl potrestán za: §e%reason%"
+reason-spam: "Spamování"
+reason-flood: "Rychlé psaní (Flood)"
+reason-blocked-word: "Nevhodné vyjadřování"
+blocked-word-log-format: '%message% (Slovo: %word%)'
