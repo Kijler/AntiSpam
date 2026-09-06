@@ -1,7 +1,65 @@
 prefix: "§6AntiSpam §8» "
 blocked-word-message: "§7Ihre Nachricht enthält ein blockiertes Wort."
-reload-message: "§7Plugin wurde erfolgreich neu geladen."
-wait-message: "§7Sie müssen noch §6%remaining_time% §7Sekunden warten, bevor Sie eine weitere Nachricht senden können."
-repeat-message: "§7Senden Sie nicht zweimal hintereinander die gleiche Nachricht."
+reload-message: "§aPlugin wurde erfolgreich neu geladen."
+wait-message: "§7Sie müssen §6%remaining_time% §7Sekunden warten, bevor Sie eine weitere Nachricht senden können."
+repeat-message: "§7Senden Sie nicht zweimal hintereinander dieselbe Nachricht."
 no-permission-message: "§cSie haben keine Berechtigung, diesen Befehl zu verwenden."
 repeat-character-message: "§7Ihre Nachricht enthält zu viele wiederholte Zeichen."
+invalid-id-message: "§cDie ID muss eine Zahl sein."
+punish-check-not-found: "§cStrafe mit dieser ID wurde nicht gefunden."
+punish-check-found: |-
+  §7Strafen-Suche
+  §7Strafen-ID: §6%id% 
+  §7Spieler: §e%player% 
+  §7Kategorie: §c%category%
+  §7Nachricht: §f%content%
+
+help-message: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eBefehlshilfe
+  §8- §e/antispam reload §8- §fLädt die Pluginkonfiguration neu.
+  §8- §e/antispam check <ID> §8- §fÜberprüft die Details einer bestimmten Strafe.
+  §8- §e/chatreport <player> §8- §fMeldet einen Spieler wegen unangemessenem Chat.
+  §8- §e/chatreportlogs §8- §fZeigt eine Liste der letzten Chat-Meldungen an.
+  §8§m--------------------------------------------------
+
+only-players-command: "§cDieser Befehl kann nur von einem Spieler ausgeführt werden."
+report-feature-disabled: "§cDiese Funktion ist derzeit deaktiviert."
+report-self: "§cDu kannst dich nicht selbst melden."
+report-admin: "§cDu kannst diesen Spieler nicht melden, da er Immunität besitzt."
+report-cooldown: "§cDu hast diesen Spieler kürzlich bereits gemeldet."
+report-sent: "§aSpieler wurde erfolgreich gemeldet! Danke."
+report-empty: "§cDieser Spieler hat noch nichts geschrieben."
+report-closed: "§aReport #%id% wurde erfolgreich geschlossen und gelöscht."
+report-notify: "§c[!] Neuer Report vom Server §e%server% §cüber Spieler §e%reported% §cvon §a%reporter%"
+report-click-open: "§8[ §aKLICKEN UM DAS BUCH ZU ÖFFNEN §8]"
+
+report-list-empty: "§cEs wurden noch keine Reports erstellt."
+report-list-header: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eListe der letzten Reports:
+report-list-format: "§8- §c#%id% §8| §7Spieler: §e%reported% §8| §7Gemeldet von: §a%reporter%"
+report-list-hover: "§aKlicken, um das Buch anzuzeigen"
+report-list-footer: "§8§m--------------------------------------------------"
+report-not-found: "§cDieser Report existiert nicht mehr (wurde geschlossen)."
+
+report-book-title: "Report #%id%"
+report-book-author: "AntiSpam System"
+report-book-page1: |-
+  §c§lReport #%id%
+
+  §8Server: §0%server%
+  §8Gemeldet: §c%reported%
+  §8Gemeldet von: §a%reporter%
+  §8Datum: §0%date%
+
+report-book-close-btn: "§4§l[REPORT SCHLIEßEN]"
+report-book-close-hover: "§cDiesen Report löschen und schließen"
+report-book-page2: |-
+  §8§nLetzte Nachrichten:
+
+punish-notify: "§8[§c!§8] §cSpieler §e%player% §cwurde bestraft für: §e%reason%"
+reason-spam: "Spammen"
+reason-flood: "Chat-Überflutung"
+reason-blocked-word: "Unangemessene Sprache"
+blocked-word-log-format: '%message% (Wort: %word%)'
