@@ -1,7 +1,64 @@
 prefix: "§6AntiSpam §8» "
 blocked-word-message: "§7Your message contains a blocked word."
-reload-message: "§7Plugin reloaded successfully."
-wait-message: "§7You need to wait §6%remaining_time% §7seconds before sending another message."
+reload-message: "§aPlugin reloaded successfully."
+wait-message: "§7You must wait §6%remaining_time% §7seconds before sending another message."
 repeat-message: "§7Do not send the same message twice in a row."
 no-permission-message: "§cYou do not have permission to use this command."
 repeat-character-message: "§7Your message contains too many repeating characters."
+invalid-id-message: "§cID must be a number."
+punish-check-not-found: "§cPunishment with this ID was not found."
+punish-check-found: |-
+  §7Punishment Lookup
+  §7Punishment ID: §6%id% 
+  §7Player: §e%player% 
+  §7Category: §c%category%
+  §7Message: §f%content%
+
+help-message: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eCommands Help
+  §8- §e/antispam reload §8- §fReloads plugin configuration.
+  §8- §e/antispam check <ID> §8- §fChecks details of a specific punishment.
+  §8- §e/chatreport <player> §8- §fReports a player for inappropriate chat.
+  §8- §e/chatreportlogs §8- §fShows a list of recent chat reports.
+  §8§m--------------------------------------------------
+
+only-players-command: "§cThis command can only be used by a player."
+report-feature-disabled: "§cThis feature is currently disabled."
+report-self: "§cYou cannot report yourself."
+report-admin: "§cYou cannot report this player because they have immunity."
+report-cooldown: "§cYou have already reported this player recently."
+report-sent: "§aPlayer was successfully reported! Thank you."
+report-empty: "§cThis player hasn't typed anything yet."
+report-closed: "§aReport #%id% was successfully closed and deleted."
+report-notify: "§c[!] New report from server §e%server% §cagainst §e%reported% §cby §a%reporter%"
+report-click-open: "§8[ §aCLICK TO OPEN BOOK §8]"
+
+report-list-empty: "§cNo reports have been created yet."
+report-list-header: |-
+  §8§m--------------------------------------------------
+  §6AntiSpam §8» §eList of recent reports:
+report-list-format: "§8- §c#%id% §8| §7Player: §e%reported% §8| §7Reported by: §a%reporter%"
+report-list-hover: "§aClick to view the book"
+report-list-footer: "§8§m--------------------------------------------------"
+report-not-found: "§cThis report no longer exists (has been closed)."
+
+report-book-title: "Report #%id%"
+report-book-author: "AntiSpam System"
+report-book-page1: |-
+  §c§lReport #%id%
+
+  §8Server: §0%server%
+  §8Reported: §c%reported%
+  §8Reporter: §a%reporter%
+  §8Date: §0%date%
+
+report-book-close-btn: "§4§l[CLOSE REPORT]"
+report-book-close-hover: "§cDelete and close this report"
+report-book-page2: |-
+  §8§nRecent messages:
+
+punish-notify: "§8[§c!§8] §cPlayer §e%player% §cwas punished for: §e%reason%"
+reason-spam: "Spamming"
+reason-flood: "Flooding the chat"
+reason-blocked-word: "Inappropriate language"
