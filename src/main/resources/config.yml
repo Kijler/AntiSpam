@@ -1,6 +1,6 @@
 # --------------------------------------------
 #
-#          AntiSpam 3.0.0
+#          AntiSpam 3.2.0
 #
 # Thank you for downloading this plugin
 # don't forget to leave a review
@@ -15,6 +15,8 @@
 #
 # --------------------------------------------
 
+server-name: Lobby
+
 # Select the plugin language.
 # Available options: EN (English), CZ (Czech), DE (German).
 # You can edit these files in the /languages/ folder.
@@ -25,55 +27,100 @@ language: EN
 # If using SQLITE, the file 'data.db' will be created in the plugin folder.
 # If using MYSQL, fill in the host, port, database, username, and password.
 database:
-  type: "SQLITE"
-  host: "localhost"
+  type: SQLITE
+  host: localhost
   port: 3306
-  database: "minecraft_db"
-  username: "root"
-  password: "password"
+  database: antispam_db
+  username: root
+  password: password
   useSSL: false
 
 # Chat Restrictions
-# block-repeated-messages: If true, prevents players from sending the exact same message twice.
+# block-repeated-messages: If true, prevents players from sending similar messages repeatedly.
 # repeat-message-delay: How many seconds a player must wait before sending the same message again.
+# similarity-percentage: How similar (in percent) a message must be to the previous one to be blocked as spam.
 # delay: The global cooldown in seconds between any chat messages.
 # block-repeated-characters: Prevents excessive character repetition (e.g., "hellloooo").
 # max-repeating-characters: The maximum allowed number of identical consecutive characters.
 block-repeated-messages: true
 repeat-message-delay: 60
+similarity-percentage: 65.0
 delay: 3
 block-repeated-characters: true
 max-repeating-characters: 3
 
+# Report Settings
+# enabled: Toggle the whole chat reporting system on or off.
+# report-messages-count: Defines how many recent messages should be stored when reporting a player.
+report-feature:
+  enabled: true
+report-messages-count: 5
+
 # Punishment Settings
 # punishment-issuer: The name that will appear as the source of the punishment command.
-# This is useful for ban management plugins to show a specific name instead of "Console".
-punishment-issuer: "AntiSpam"
+# punishment-notifications: Sends an alert to online staff (with antispam.punishnotify) when a player gets punished.
+punishment-issuer: AntiSpam
+punishment-notifications:
+  enabled: true
 
 # Punishment Categories
 # You can configure automatic punishments for each violation type.
 # enabled: Toggle this punishment category on or off.
 # threshold: How many times a player must violate the rule before the command is executed.
-# command: The command to execute when the threshold is reached.
+# command: The fallback command to execute when the threshold is reached (used if ladder is disabled).
+# ladder-enabled: If true, the plugin will track the player's previous violations and escalate the punishment.
+# ladder: Defines the escalating sequence of commands. Level 1 is the first punishment, Level 2 is the second, etc.
 # Placeholders: %player% (player name), %punish_id% (unique ID of the violation).
 punishments:
   blocked-word:
     enabled: true
     threshold: 3
-    command: "tempmute %player% 2h Inappropriate behavior (#%punish_id%)"
+    command: tempmute %player% 2h Inappropriate behavior (#%punish_id%)
+    ladder-enabled: true
+    ladder:
+      1: "tempmute %player% 30m Inappropriate behavior (#%punish_id%)"
+      2: "tempmute %player% 2h Inappropriate behavior (#%punish_id%)"
+      3: "tempmute %player% 10d Inappropriate behavior (#%punish_id%)"
+      4: "ban %player% Inappropriate behavior (#%punish_id%)"
 
   spam:
     enabled: true
     threshold: 5
-    command: "tempmute %player% 30m Spamming (#%punish_id%)"
+    command: tempmute %player% 30m Spamming (#%punish_id%)
+    ladder-enabled: true
+    ladder:
+      1: "tempmute %player% 30m Spamming (#%punish_id%)"
+      2: "tempmute %player% 2h Spamming (#%punish_id%)"
+      3: "tempmute %player% 10d Spamming (#%punish_id%)"
+      4: "ban %player% Spamming (#%punish_id%)"
 
   flood:
     enabled: true
     threshold: 5
-    command: "tempmute %player% 15m Flood (#%punish_id%)"
+    command: tempmute %player% 15m Flood (#%punish_id%)
+    ladder-enabled: true
+    ladder:
+      1: "tempmute %player% 30m Flood (#%punish_id%)"
+      2: "tempmute %player% 2h Flood (#%punish_id%)"
+      3: "tempmute %player% 10d Flood (#%punish_id%)"
+      4: "ban %player% Flood (#%punish_id%)"
 
-# Blocked Words List
-# Add words here that you want to prevent players from saying in chat.
-blocked-words:
-  - "badword1"
-  - "badword2"
+discord-webhook:
+  enabled: false
+  url: https://discord.com/api/webhooks/your_webhook_url_here
+  embed:
+    title: "⚠️ New Chat Report Alert!"
+    color: 16711680
+    thumbnail: https://www.spigotmc.org/data/resource_icons/118/118730.jpg?1723066545
+    description: |-
+      > A player has been reported for inappropriate chat behavior. Please review the details below.
+      
+      👤 **Reported Player:** `%reported%`
+      🕵️ **Reporter:** `%reporter%`
+      
+      🌍 **Server:** `%server%`
+      🏷️ **Report ID:** `#%id%`
+    footer:
+      text: "AntiSpam System • Chat Moderation"
+      icon_url: https://www.spigotmc.org/data/resource_icons/118/118730.jpg?1723066545
+    title-url: "https://www.spigotmc.org/resources/antispam-with-web-panel.118730/"
